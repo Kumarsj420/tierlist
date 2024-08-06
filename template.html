@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tmp.css">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+<body class="h-full">
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="absolute invisible pointer-events-none">
+        <symbol id="edit" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2M5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18M15.27 4L18 6.73l-2 1.95L13.32 6Zm-8.9 8.91L12 7.32l2.7 2.7l-5.6 5.6l-3 .28Z" />
+        </symbol>
+
+        <symbol id="download" viewBox="0 0 20 20">
+            <path fill="currentColor" d="M17 12v5H3v-5H1v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z" />
+            <path fill="currentColor" d="M15 9h-4V1H9v8H5l5 6z" />
+        </symbol>
+
+        <symbol id="share" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="m13.12 17.023l-4.199-2.29a4 4 0 1 1 0-5.465l4.2-2.29a4 4 0 1 1 .958 1.755l-4.2 2.29a4 4 0 0 1 0 1.954l4.2 2.29a4 4 0 1 1-.959 1.755M6 14a2 2 0 1 0 0-4a2 2 0 0 0 0 4m11-6a2 2 0 1 0 0-4a2 2 0 0 0 0 4m0 12a2 2 0 1 0 0-4a2 2 0 0 0 0 4" />
+        </symbol>
+
+        <symbol id="embed" viewBox="0 0 20 16">
+            <path fill="currentColor"
+                d="m13 11.5l1.5 1.5l5-5l-5-5L13 4.5L16.5 8zm-6-7L5.5 3l-5 5l5 5L7 11.5L3.5 8zm3.958-2.148l1.085.296l-3 11l-1.085-.296z" />
+        </symbol>
+
+        <symbol id="add" viewBox="0 0 24 24">
+            <g fill="none">
+                <path
+                    d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                <path fill="currentColor"
+                    d="M10.5 20a1.5 1.5 0 0 0 3 0v-6.5H20a1.5 1.5 0 0 0 0-3h-6.5V4a1.5 1.5 0 0 0-3 0v6.5H4a1.5 1.5 0 0 0 0 3h6.5z" />
+            </g>
+        </symbol>
+
+        <symbol id="reset" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2v2a8 8 0 1 0 5.135 1.865L15 8V2h6l-2.447 2.447A9.98 9.98 0 0 1 22 12" />
+        </symbol>
+
+        <symbol id="element" viewBox="0 0 1024 1024">
+            <path fill="currentColor"
+                d="M839.7 734.7c0 33.3-17.9 41-17.9 41S519.7 949.8 499.2 960c-10.2 5.1-20.5 5.1-30.7 0c0 0-314.9-184.3-325.1-192c-5.1-5.1-10.2-12.8-12.8-20.5V368.6c0-17.9 20.5-28.2 20.5-28.2L466 158.6q19.2-7.65 38.4 0s279 161.3 309.8 179.2c17.9 7.7 28.2 25.6 25.6 46.1c-.1-5-.1 317.5-.1 350.8M714.2 371.2c-64-35.8-217.6-125.4-217.6-125.4c-7.7-5.1-20.5-5.1-30.7 0L217.6 389.1s-17.9 10.2-17.9 23v297c0 5.1 5.1 12.8 7.7 17.9c7.7 5.1 256 148.5 256 148.5c7.7 5.1 17.9 5.1 25.6 0c15.4-7.7 250.9-145.9 250.9-145.9s12.8-5.1 12.8-30.7v-74.2l-276.5 169v-64c0-17.9 7.7-30.7 20.5-46.1L745 535c5.1-7.7 10.2-20.5 10.2-30.7v-66.6l-279 169v-69.1c0-15.4 5.1-30.7 17.9-38.4zM919 135.7c0-5.1-5.1-7.7-7.7-7.7h-58.9V66.6c0-5.1-5.1-5.1-10.2-5.1l-30.7 5.1c-5.1 0-5.1 2.6-5.1 5.1V128h-56.3c-5.1 0-5.1 5.1-7.7 5.1v38.4h69.1v64c0 5.1 5.1 5.1 10.2 5.1l30.7-5.1c5.1 0 5.1-2.6 5.1-5.1v-56.3h64z" />
+        </symbol>
+
+        <symbol id="setting" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M19.9 12.66a1 1 0 0 1 0-1.32l1.28-1.44a1 1 0 0 0 .12-1.17l-2-3.46a1 1 0 0 0-1.07-.48l-1.88.38a1 1 0 0 1-1.15-.66l-.61-1.83a1 1 0 0 0-.95-.68h-4a1 1 0 0 0-1 .68l-.56 1.83a1 1 0 0 1-1.15.66L5 4.79a1 1 0 0 0-1 .48L2 8.73a1 1 0 0 0 .1 1.17l1.27 1.44a1 1 0 0 1 0 1.32L2.1 14.1a1 1 0 0 0-.1 1.17l2 3.46a1 1 0 0 0 1.07.48l1.88-.38a1 1 0 0 1 1.15.66l.61 1.83a1 1 0 0 0 1 .68h4a1 1 0 0 0 .95-.68l.61-1.83a1 1 0 0 1 1.15-.66l1.88.38a1 1 0 0 0 1.07-.48l2-3.46a1 1 0 0 0-.12-1.17ZM18.41 14l.8.9l-1.28 2.22l-1.18-.24a3 3 0 0 0-3.45 2L12.92 20h-2.56L10 18.86a3 3 0 0 0-3.45-2l-1.18.24l-1.3-2.21l.8-.9a3 3 0 0 0 0-4l-.8-.9l1.28-2.2l1.18.24a3 3 0 0 0 3.45-2L10.36 4h2.56l.38 1.14a3 3 0 0 0 3.45 2l1.18-.24l1.28 2.22l-.8.9a3 3 0 0 0 0 3.98m-6.77-6a4 4 0 1 0 4 4a4 4 0 0 0-4-4m0 6a2 2 0 1 1 2-2a2 2 0 0 1-2 2" />
+        </symbol>
+
+        <symbol id="cloud" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48q1.18-1.53 3.08-1.95q.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5q1.14 1.28 1.14 3q0 1.88-1.31 3.19T18.5 20H13q-.82 0-1.41-.59Q11 18.83 11 18v-5.15L9.4 14.4L8 13l4-4l4 4l-1.4 1.4l-1.6-1.55V18h5.5q1.05 0 1.77-.73q.73-.72.73-1.77t-.73-1.77Q19.55 13 18.5 13H17v-2q0-2.07-1.46-3.54Q14.08 6 12 6Q9.93 6 8.46 7.46Q7 8.93 7 11h-.5q-1.45 0-2.47 1.03Q3 13.05 3 14.5T4.03 17q1.02 1 2.47 1H9v2m3-7" />
+        </symbol>
+
+        <symbol id="text" viewBox="0 0 16 16">
+            <path fill="currentColor"
+                d="M2.5 2.75A.75.75 0 0 1 3.25 2h9a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0V3.5h-3v9h1.25a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5H7v-9H4v.75a.75.75 0 0 1-1.5 0z" />
+        </symbol>
+
+        <symbol id="arrow-down" viewBox="0 0 24 24">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="m7 10l5 5l5-5" />
+        </symbol>
+
+        <symbol id="close" viewBox="0 0 16 16">
+            <path fill="currentColor" fill-rule="evenodd"
+                d="M3.47 3.47a.75.75 0 0 1 1.06 0L8 6.94l3.47-3.47a.75.75 0 1 1 1.06 1.06L9.06 8l3.47 3.47a.75.75 0 1 1-1.06 1.06L8 9.06l-3.47 3.47a.75.75 0 0 1-1.06-1.06L6.94 8L3.47 4.53a.75.75 0 0 1 0-1.06"
+                clip-rule="evenodd" />
+        </symbol>
+
+        <symbol id="live-photo" viewBox="0 0 24 24">
+            <g fill="none">
+                <path
+                    d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                <path fill="currentColor"
+                    d="M12.191 19.998a1 1 0 1 1 .047 2L12 22l-.238-.003a1 1 0 1 1 .047-2L12 20zm5.347-.833a1 1 0 0 1-.332 1.375a10 10 0 0 1-.412.238a1 1 0 0 1-.96-1.755a8 8 0 0 0 .33-.19a1 1 0 0 1 1.374.332m-9.701-.332q.162.1.33.19a1 1 0 0 1-.961 1.755a10 10 0 0 1-.412-.238a1 1 0 1 1 1.043-1.707M12 6a6 6 0 1 1 0 12a6 6 0 0 1 0-12m8.38 9.437a1 1 0 0 1 .398 1.357q-.114.21-.238.412a1 1 0 0 1-1.707-1.043q.1-.162.19-.33a1 1 0 0 1 1.358-.396Zm-15.403.397a8 8 0 0 0 .19.33a1 1 0 1 1-1.707 1.042a10 10 0 0 1-.238-.412a1 1 0 0 1 1.755-.96M12 8a4 4 0 1 0 0 8a4 4 0 0 0 0-8m0 2a2 2 0 1 1 0 4a2 2 0 0 1 0-4m-8.974.785a1 1 0 0 1 .976 1.024L4 12q0 .096.002.191a1 1 0 0 1-2 .047L2 12q0-.12.003-.238a1 1 0 0 1 1.023-.977m17.948 0a1 1 0 0 1 1.023.977L22 12l-.003.238a1 1 0 1 1-2-.047L20 12l-.002-.191a1 1 0 0 1 .976-1.024m-.434-3.991q.123.203.238.412a1 1 0 1 1-1.755.96a8 8 0 0 0-.19-.33a1 1 0 1 1 1.707-1.042M4.835 6.462a1 1 0 0 1 .332 1.375q-.1.162-.19.33a1 1 0 1 1-1.755-.961q.115-.21.238-.412a1 1 0 0 1 1.375-.332m11.959-3.24q.21.115.412.238a1 1 0 0 1-1.043 1.707a8 8 0 0 0-.33-.19a1 1 0 1 1 .961-1.755m-8.23.397a1 1 0 0 1-.398 1.358a8 8 0 0 0-.33.19A1 1 0 0 1 6.795 3.46q.203-.123.412-.238a1 1 0 0 1 1.357.397m3.674-1.616a1 1 0 0 1-.047 2L12 4l-.191.002a1 1 0 0 1-.047-2L12 2z" />
+            </g>
+        </symbol>
+
+        <symbol id="img" viewBox="0 0 16 16">
+            <path fill="currentColor"
+                d="M6 5a2 2 0 1 1-4 0a2 2 0 0 1 4 0m9-4a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm-3.448 6.134l-3.76 2.769a.5.5 0 0 1-.436.077l-.087-.034l-1.713-.87L1 11.8V14h14V9.751zM15 2H1v8.635l4.28-2.558a.5.5 0 0 1 .389-.054l.094.037l1.684.855l3.813-2.807a.5.5 0 0 1 .52-.045l.079.05L15 8.495z" />
+        </symbol>
+
+        <symbol id="home" viewBox="0 0 32 32">
+            <path fill="currentColor"
+                d="m16 2.594l-.719.687l-13 13L3.72 17.72L5 16.437V28h9V18h4v10h9V16.437l1.281 1.282l1.438-1.438l-13-13zm0 2.844l9 9V26h-5V16h-8v10H7V14.437z" />
+        </symbol>
+
+    </svg>
+
+    <div id="overlay"
+        class="fixed inset-0 transition ease-in-out duration-200 bg-txt-400/35 dark:bg-neutral-500/30 z-10 blur"></div>
+
+    <div class="modal fixed bg-secondary-4 z-20 rounded-md shadow-md transition ease-in-out duration-200 top-1/2 left-1/2 max-w-screen-md w-full overflow-hidden"
+        id="modal">
+        <div class="flex justify-between items-center py-2.5 px-3.5 bg-txt-100 dark:bg-secondary-3">
+            <div class="text-xl font-semibold text-txt-950 ">Edit List</div>
+            <button data-close-button class="close-button">
+                <svg class="icon text-lg text-txt-950">
+                    <use xlink:href="#close"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 py-4 px-5">
+            <div>
+                <label for="email" class="block text-base font-normal leading-6 text-txt-950">List Title</label>
+                <div class="mt-3">
+                    <input type="email" name="email" id="email"
+                        class="block w-full rounded-md border-0 py-1.5 text-txt-950 shadow-sm ring-1 ring-inset ring-txt-300 placeholder:text-txt-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 bg-secondary-5"
+                        placeholder="eg. Top Tier">
+                </div>
+            </div>
+            <fieldset>
+                <legend class="block text-base font-normal leading-6 text-txt-950">Choose List Background</legend>
+                <div class="tlist-bg mt-3 flex items-center space-x-3">
+
+                    <label aria-label="red"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-red-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="red" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-red-500 to-orange-500"></span>
+                    </label>
+
+                    <label aria-label="orange"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-orange-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="orange" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-orange-500 to-amber-500"></span>
+                    </label>
+
+                    <label aria-label="amber"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-amber-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="amber" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-amber-500 to-yellow-500"></span>
+                    </label>
+
+                    <label aria-label="lime"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-lime-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="lime" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-lime-500 to-green-500"></span>
+                    </label>
+
+                    <label aria-label="green"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-green-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="green" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-green-500 to-emerald-500"></span>
+                    </label>
+
+                    <label aria-label="emerald"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-emerald-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="emerald" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-emerald-500 to-teal-500"></span>
+                    </label>
+
+                    <label aria-label="cyan"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-cyan-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="cyan" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-cyan-500 to-sky-500"></span>
+                    </label>
+
+                    <label aria-label="sky"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-sky-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="sky" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-sky-500 to-blue-500"></span>
+                    </label>
+
+                    <label aria-label="blue"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-blue-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="blue" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-blue-500 to-indigo-500"></span>
+                    </label>
+
+                    <label aria-label="indigo"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-indigo-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="indigo" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-indigo-500 to-violet-500"></span>
+                    </label>
+
+                    <label aria-label="violet"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-violet-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="violet" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-violet-500 to-purple-500"></span>
+                    </label>
+
+                    <label aria-label="purple"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-purple-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="purple" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-purple-500 to-fuchsia-500"></span>
+                    </label>
+
+                    <label aria-label="fuchsia"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-fuchsia-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="fuchsia" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-fuchsia-500 to-pink-500"></span>
+                    </label>
+
+                    <label aria-label="Pink"
+                        class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 text-pink-500 ring-current focus:outline-none">
+                        <input type="radio" name="color-choice" value="Pink" class="sr-only">
+                        <span aria-hidden="true"
+                            class="h-8 w-8 rounded-full border-transparent border-opacity-10 bg-gradient-to-r from-pink-500 to-rose-500"></span>
+                    </label>
+
+                </div>
+            </fieldset>
+
+        </div>
+    </div>
+
+    <div class="flex w-full">
+        <main class=" w-full  lg:flex-1">
+            <div
+                class="w-full h-24 shadow-sm border-b-[1px]  border-b-txt-200 bg-secondary-1 sticky top-0 left-0 px-10 flex items-center">
+                <a href="#">
+                    <span class="sr-only">Your Company</span>
+                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        alt="">
+                </a>
+                <div class="flex-1 ml-6">
+                    <div class="w-full max-w-96 m-auto border-b-[1px] border-txt-100">
+                        <label for="ts-name" class="sr-only">Account number</label>
+                        <div class="relative mt-2 rounded-md shadow-sm">
+                            <input type="text" name="ts-name" id="ts-name"
+                                class="tmp-title block w-full rounded-md border-0 py-1.5 pr-1050text-txt-950 ring-1 ring-inset bg-secondary-3 ring-txt-300 text-txt-950  focus:ring-0 sm:leading-6 text-3xl font-semibold"
+                                value="Tier List Name">
+                            <div class="cursor-pointer absolute inset-y-0 right-0 flex items-center pr-3">
+                                <svg class="icon text-xl text-txt-400">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <a href="">
+                        <svg class="icon text-2xl text-txt-400">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="py-2 px-3 h-[calc(100vh-96px)] flex flex-col gap-7">
+                <div class="w-full flex justify-between items-center pt-5 px-5">
+                    <div class="flex flex-row gap-6">
+
+                        <div class="relative inline-block text-left" data-group>
+                            <div>
+                                <button type="button"
+                                    class="inline-flex w-full justify-center items-center gap-x-2 rounded-md bg-secondary-6 pl-3 pr-2 py-2 text-sm font-normal text-txt-950 shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0 hover:bg-txt-50 h-9"
+                                    id="menu-button" aria-expanded="true" aria-haspopup="true" data-event="click">
+                                    Templates
+                                    <svg
+                                        class="icon text-xl text-txt-400 arrow-down transition-all duration-200 ease-in-out">
+                                        <use xlink:href="#arrow-down"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-secondary-6 shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0 focus:outline-none"
+                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1"
+                                data-action="hide" data-animation="bottom-to-top">
+                                <div class="py-1" role="none">
+                                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                    <a href="#" class="block px-4 py-2 text-sm text-txt-900" role="menuitem"
+                                        tabindex="-1" id="menu-item-0">Account settings</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-txt-900" role="menuitem"
+                                        tabindex="-1" id="menu-item-1">Support</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-txt-900" role="menuitem"
+                                        tabindex="-1" id="menu-item-2">License</a>
+                                    <form method="POST" action="#" role="none">
+                                        <button type="submit"
+                                            class="block w-full px-4 py-2 text-left text-sm text-txt-900"
+                                            role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button"
+                            class="rounded-full bg-secondary-6 p-2 hover:bg-txt-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  w-9 h-9 flex items-center justify-center shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0">
+                            <svg class="icon text-sm text-txt-950">
+                                <use xlink:href="#reset"></use>
+                            </svg>
+                        </button>
+
+                        <button type="button"
+                            class="rounded-full bg-secondary-6 p-2 hover:bg-txt-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  w-9 h-9 flex items-center justify-center shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0">
+                            <svg class="icon text-sm text-txt-950">
+                                <use xlink:href="#add"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-row gap-6">
+                        <div class="relative inline-block text-left">
+                            <div>
+                                <button type="button"
+                                    class="rounded-full bg-secondary-6 p-2 hover:bg-txt-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  w-9 h-9 flex items-center justify-center shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0">
+                                    <svg class="icon text-sm text-txt-950">
+                                        <use xlink:href="#share"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!--
+                              Dropdown menu, show/hide based on menu state.
+                          
+                              Entering: "transition ease-out duration-100"
+                                From: "transform opacity-0 scale-95"
+                                To: "transform opacity-100 scale-100"
+                              Leaving: "transition ease-in duration-75"
+                                From: "transform opacity-100 scale-100"
+                                To: "transform opacity-0 scale-95"
+                            -->
+                            <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1"
+                                data-action="hide">
+                                <div class="py-1" role="none">
+                                    <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                        tabindex="-1" id="menu-item-0">Account settings</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                        tabindex="-1" id="menu-item-1">Support</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                        tabindex="-1" id="menu-item-2">License</a>
+                                    <form method="POST" action="#" role="none">
+                                        <button type="submit"
+                                            class="block w-full px-4 py-2 text-left text-sm text-gray-700"
+                                            role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button"
+                            class="rounded-full bg-secondary-6 p-2 text-white hover:bg-txt-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  w-9 h-9 flex items-center justify-center shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0">
+                            <svg class="icon text-sm text-txt-950">
+                                <use xlink:href="#embed"></use>
+                            </svg>
+                        </button>
+
+                        <button type="button"
+                            class="rounded-full bg-secondary-6 p-2 text-white hover:bg-txt-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2  w-9 h-9 flex items-center justify-center shadow-md ring-1 ring-inset ring-txt-100 dark:ring-0">
+                            <svg class="icon text-sm text-txt-950">
+                                <use xlink:href="#download"></use>
+                            </svg>
+                        </button>
+
+                        <div class="inline-flex rounded-md shadow-sm">
+                            <button type="button"
+                                class="relative inline-flex items-center rounded-l-md bg-primary text-white px-3 py-2 text-sm font-semibold50text-txt-950 dark:ring-1 ring-0 ring-inset ring-indigo-300 hover:bg-indigo-400 focus:z-10 h-9">Live
+                                Tier List</button>
+                            <div class="relative -ml-px block" data-group="">
+                                <button type="button"
+                                    class="relative inline-flex items-center rounded-r-md bg-indigo-600 px-2 py-2 text-white dark:ring-1 ring-0 ring-inset ring-indigo-300 hover:bg-indigo-400 focus:z-10 h-9"
+                                    id="option-menu-button" aria-expanded="true" aria-haspopup="true"
+                                    data-event="click">
+                                    <span class="sr-only">Open options</span>
+                                    <svg
+                                        class="icon text-xl text-white arrow-down transition-all duration-200 ease-in-out">
+                                        <use xlink:href="#arrow-down"></use>
+                                    </svg>
+                                </button>
+                                <div class="absolute right-0 z-10 -mr-1 mt-2 w-56 origin-top-right rounded-md bg-secondary-6 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                    role="menu" aria-orientation="vertical" aria-labelledby="option-menu-button"
+                                    tabindex="-1" data-action="hide" data-animation="bottom-to-top">
+                                    <div class="py-1" role="none">
+                                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                                        <a href="#" class="block px-4 py-2 text-sm text-txt-950" role="menuitem"
+                                            tabindex="-1" id="option-menu-item-0">Public</a>
+                                        <a href="#" class="block px-4 py-2 text-sm text-txt-950" role="menuitem"
+                                            tabindex="-1" id="option-menu-item-1">Private</a>
+                                        <a href="#" class="block px-4 py-2 text-sm text-txt-950" role="menuitem"
+                                            tabindex="-1" id="option-menu-item-2">Access via Links Only</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="flex-1 custom-scrollbar overflow-y-scroll flex flex-col gap-5 px-5 pb-5" drop-container="main">
+                    <div class="list" draggable="true" data-draggable="main">
+                        <div class="flex w-full justify-between">
+                            <h2
+                                class="bg-gradient-to-r from-red-500 to-orange-500 w-max px-2.5 py-1.5 text-white rounded-t-md min-w-36 shadow-sm">
+                                First Tier
+                            </h2>
+                            <button data-modal-target="#modal">
+                                <svg
+                                    class="icon text-base text-txt-300 arrow-down transition-all duration-200 ease-in-out">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="min-h-24 flex flex-row flex-wrap gap-4 w-full bg-secondary-4 rounded-md rounded-tl-none px-4 py-2 shadow-sm"
+                            drop-container="entries"></div>
+                    </div>
+                    <div class="list" draggable="true" data-draggable="main">
+                        <div class="flex w-full justify-between">
+                            <h2
+                                class="bg-gradient-to-r from-lime-500 to-green-500 w-max px-2.5 py-1.5 text-white rounded-t-md min-w-36 shadow-sm">
+                                Second Tier
+                            </h2>
+                            <button data-modal-target="#modal">
+                                <svg
+                                    class="icon text-base text-txt-300 arrow-down transition-all duration-200 ease-in-out">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="min-h-24 w-full bg-secondary-4 rounded-md rounded-tl-none px-4 py-2 shadow-sm"
+                            drop-container="entries"></div>
+                    </div>
+                    <div class="list" draggable="true" data-draggable="main">
+                        <div class="flex w-full justify-between">
+                            <h2
+                                class="bg-gradient-to-r from-pink-500 to-rose-500 w-max px-2.5 py-1.5 text-white rounded-t-md min-w-36 shadow-sm">
+                                Third Tier
+                            </h2>
+                            <button data-modal-target="#modal">
+                                <svg
+                                    class="icon text-base text-txt-300 arrow-down transition-all duration-200 ease-in-out">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="min-h-24 w-full bg-secondary-4 rounded-md rounded-tl-none px-4 py-2 shadow-sm"
+                            drop-container="entries"></div>
+                    </div>
+                    <div class="list" draggable="true" data-draggable="main">
+                        <div class="flex w-full justify-between">
+                            <h2
+                                class="bg-gradient-to-r from-purple-500 to-fuchsia-500 w-max px-2.5 py-1.5 text-white rounded-t-md min-w-36 shadow-sm">
+                                Fourth Tier
+                            </h2>
+                            <button data-modal-target="#modal">
+                                <svg
+                                    class="icon text-base text-txt-300 arrow-down transition-all duration-200 ease-in-out">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="min-h-24 w-full bg-secondary-4 rounded-md rounded-tl-none px-4 py-2 shadow-sm"
+                            drop-container="entries"></div>
+                    </div>
+                    <div class="list" draggable="true" data-draggable="main">
+                        <div class="flex w-full justify-between">
+                            <h2
+                                class="bg-gradient-to-r from-blue-500 to-indigo-500 w-max px-2.5 py-1.5 text-white rounded-t-md min-w-36 shadow-sm">
+                                Fifth Tier
+                            </h2>
+                            <button data-modal-target="#modal">
+                                <svg
+                                    class="icon text-base text-txt-300 arrow-down transition-all duration-200 ease-in-out">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="min-h-24 w-full bg-secondary-4 rounded-md rounded-tl-none px-4 py-2 shadow-sm"
+                            drop-container="entries"></div>
+                    </div>
+                    <div class="list" draggable="true" data-draggable="main">
+                        <div class="flex w-full justify-between">
+                            <h2
+                                class="bg-gradient-to-r from-amber-500 to-yellow-500 w-max px-2.5 py-1.5 text-white rounded-t-md min-w-36 shadow-sm">
+                                Sixth Tier
+                            </h2>
+                            <button data-modal-target="#modal">
+                                <svg
+                                    class="icon text-base text-txt-300 arrow-down transition-all duration-200 ease-in-out">
+                                    <use xlink:href="#edit"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="min-h-24 w-full bg-secondary-4 rounded-md rounded-tl-none px-4 py-2 shadow-sm"
+                            drop-container="entries"></div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <div
+            class="bg-txt-50 dark:bg-secondary-2 w-full h-52 fixed bottom-0 left-0 lg:sticky lg:right-0 lg:top-0 lg:h-screen lg:w-[27%] shadow-sm border-l-[1px] border-l-txt-300 dark:border-l-txt-100">
+
+            <div class="w-full h-12 flex items-center justify-between overflow-hidden">
+                <div class="itab active flex items-center flex-1 justify-center h-full  bg-secondary-1 px-2.5 cursor-pointer"
+                    data-itab-btn onclick="loadTab('#tmp-items')">
+                    <svg class="icon text-lg text-txt-600">
+                        <use xlink:href="#live-photo"></use>
+                    </svg>
+                    <span class="itab-w inline-block overflow-hidden whitespace-nowrap text-txt-900"
+                        data-itab="expand">Template Items</span>
+                </div>
+                <div class="itab active flex items-center flex-1 justify-center h-full bg-secondary-1 px-2.5 cursor-pointer"
+                    data-itab-btn onclick="loadTab('#catalog')">
+                    <svg class="icon text-lg text-txt-600">
+                        <use xlink:href="#element"></use>
+                    </svg>
+                    <span class="itab-w inline-block overflow-hidden whitespace-nowrap text-txt-900"
+                        data-itab="not-expand">Catalog Items</span>
+                </div>
+
+
+                <div class="itab active flex items-center flex-1 justify-center h-full bg-secondary-1 px-2.5 cursor-pointer"
+                    data-itab-btn onclick="loadTab('#upload-tab')">
+                    <svg class="icon text-lg text-txt-600">
+                        <use xlink:href="#cloud"></use>
+                    </svg>
+                    <span class="itab-w inline-block overflow-hidden whitespace-nowrap text-txt-900"
+                        data-itab="not-expand">Uploads</span>
+                </div>
+
+                <div class="itab active flex items-center flex-1 justify-center h-full bg-secondary-1 px-2.5 cursor-pointer"
+                    data-itab-btn onclick="loadTab('#setting-tab')">
+                    <svg class="icon text-base text-txt-600">
+                        <use xlink:href="#setting"></use>
+                    </svg>
+                    <span class="itab-w inline-block overflow-hidden whitespace-nowrap text-txt-900"
+                        data-itab="not-expand">Settings</span>
+                </div>
+            </div>
+
+            <div class="w-full h-[calc(100vh-48px)] pr-3.5 pl-[17px] py-2.5 overflow-y-scroll custom-scrollbar mini">
+                <div id="tmp-items" class="w-full ">
+                    <span class="text-justify text-txt-600 font-light text-sm">Items in this section are final template
+                        entries that you can publish.</span>
+
+                    <div class="mt-5 flex gap-4 flex-wrap" drop-container="entries">
+                        <div class="bg-gradient-to-r from-orange-300 to-yellow-300 p-[2px] rounded-full cursor-grab w-max h-max"
+                            draggable="true" data-draggable="entries">
+                            <img src="https://img.freepik.com/free-vector/cute-ninja-gaming-cartoon-vector-icon-illustration-people-technology-icon-concept-isolated-flat_138676-8079.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid"
+                                alt="" class="w-16 h-16 rounded-full">
+                        </div>
+
+                        <div class="bg-gradient-to-r from-orange-300 to-yellow-300 p-[2px] rounded-full cursor-grab w-max h-max"
+                            draggable="true" data-draggable="entries">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCSRDjO188QCpcNmxQo63IlJDTeucRrmxyCA&s"
+                                alt="" class="w-16 h-16 rounded-full">
+                        </div>
+
+                        <div class="bg-gradient-to-r from-orange-300 to-yellow-300 p-[2px] rounded-full cursor-grab w-max h-max"
+                            draggable="true" data-draggable="entries">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP97v6ogm3BqTddj3h0ALagkiwDLpLM3FFmw&s"
+                                alt="" class="w-16 h-16 rounded-full " draggable="true">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="catalog" class="hidden ">
+                    <div class="flex flex-1 items-center justify-center lg:justify-end w-full mt-2">
+                        <div class="w-full max-w-lg">
+                            <label for="search" class="sr-only">Search</label>
+                            <div class="relative">
+                                <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                    <svg class="h-5 w-5 text-txt-400" viewBox="0 0 20 20" fill="currentColor"
+                                        aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <input id="search" name="search"
+                                    class="block w-full rounded-md border-0 bg-secondary-4 py-1.5 pl-10 pr-3 text-txt-900 ring-1 ring-inset ring-txt-400 placeholder:text-txt-500 focus:ring-txt-400   sm:text-sm sm:leading-6"
+                                    placeholder="Search" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="upload-tab" class="hidden ">
+
+                    <button type="button"
+                        class="relative block w-full rounded-lg border-2 border-dashed border-txt-300 py-3 px-4 text-center hover:border-txt-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mt-2">
+                        <svg class="icon text-2xl text-txt-500">
+                            <use xlink:href="#img"></use>
+                        </svg>
+                        <span class="mt-2 block text-sm font-semibold text-txt-950">Drop or upload images entries</span>
+                    </button>
+
+                </div>
+
+                <div id="setting-tab" class="hidden ">
+                    this is setting section
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>

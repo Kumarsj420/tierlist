@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tier List</title>
+</head>
+
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="absolute invisible pointer-events-none">
+        <symbol id="pc-menu" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M20 18a1 1 0 0 1 .117 1.993L20 20H4a1 1 0 0 1-.117-1.993L4 18zm0-7a1 1 0 1 1 0 2H4a1 1 0 1 1 0-2zm0-7a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2z"/></g></symbol>
+      </svg>
+
+    <div class="flex min-h-full flex-col">
+        <header class="bg-secondary-2 shadow-sm ring-1 ring-txt-200">
+            <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8" aria-label="Global">
+                <div class="flex w-max pr-10">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Your Company</span>
+                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="">
+                    </a>
+                </div>
+                <div class="flex w-full lg:w-[500px] items-center justify-center px-2 lg:ml-6 lg:justify-end">
+                    <div class="w-full">
+                        <label for="search" class="sr-only">Search</label>
+                        <div class="relative">
+                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                <svg class="h-5 w-5 text-txt-400" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <input id="search" name="search"
+                                class="block w-full rounded-md border-0 bg-secondary-1 py-1.5 pl-10 pr-3 text-txt-900 ring-1 ring-inset ring-txt-300 placeholder:text-txt-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                                placeholder="Search" type="search">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex lg:hidden pl-10">
+                    <button type="button"
+                        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-txt-700">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="hidden lg:flex lg:justify-end">
+                    <a href="#"
+                        class="ml-6 inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
+                        Template</a>
+
+                    <div class="relative ml-5 flex-shrink-0 flex items-center">
+                        <div>
+                            <button class="font-semibold px-3 py-2 text-sm text-txt-900 bg-txt-100 rounded-md hover:bg-txt-50 hidden">Login</button>
+                            <button type="button"
+                                class=" relative flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="ml-5"><svg class="icon text-2xl text-txt-900"><use xlink:href="#pc-menu"></use></svg></button>
+
+                </div>
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div class="lg:hidden" role="dialog" aria-modal="true">
+                <!-- Background backdrop, show/hide based on slide-over state. -->
+                <div class="fixed inset-0 z-10"></div>
+                <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-txt-900/10"
+                    data-action="hide">
+                    <div class="flex items-center justify-between">
+                        <a href="#" class="-m-1.5 p-1.5">
+                            <span class="sr-only">Your Company</span>
+                            <img class="h-8 w-auto"
+                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                        </a>
+                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-txt-700">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-txt-500/10">
+                            <div class="space-y-2 py-6">
+                                <div class="-mx-3">
+                                    <button type="button"
+                                        class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-txt-900 hover:bg-txt-50"
+                                        aria-controls="disclosure-1" aria-expanded="false">
+                                        Product
+                                        <!--
+                            Expand/collapse icon, toggle classes based on menu open state.
+          
+                            Open: "rotate-180", Closed: ""
+                          -->
+                                        <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor"
+                                            aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                    <!-- 'Product' sub-menu, show/hide based on menu state. -->
+                                    <div class="mt-2 space-y-2" id="disclosure-1">
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Analytics</a>
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Engagement</a>
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Security</a>
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Integrations</a>
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Automations</a>
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Watch
+                                            demo</a>
+                                        <a href="#"
+                                            class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-txt-900 hover:bg-txt-50">Contact
+                                            sales</a>
+                                    </div>
+                                </div>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-txt-900 hover:bg-txt-50">Features</a>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-txt-900 hover:bg-txt-50">Marketplace</a>
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-txt-900 hover:bg-txt-50">Company</a>
+                            </div>
+                            <div class="py-6">
+                                <a href="#"
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-txt-900 hover:bg-txt-50">Log
+                                    in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="mx-auto flex w-full max-w-7xl items-start gap-x-8 px-4 py-6 sm:px-6 lg:px-8">
+            <main class="flex-1 border-2 border-black">
+                <!-- Main area -->
+            </main>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
